@@ -30,7 +30,29 @@ export const createUser = async (event: APIGatewayProxyEvent): Promise<APIGatewa
     })
     .promise();
   return {
-    statusCode: 200,
+    statusCode: 201,
     body: JSON.stringify(newUser),
+  };
+};
+
+export const getUserById = async (event: APIGatewayProxyEvent): Promise<APIGatewayProxyResult> => {
+  const id: string | undefined = event.pathParameters?.id;
+  const userFound = await dbClient
+    .get({
+      TableName: "UserTable",
+      Key: {
+        userId: id,
+      },
+    })
+    .promise();
+  if (!userFound.Item) {
+    return {
+      statusCode: 404,
+      body: JSON.stringify({ error: "User not found" }),
+    };
+  }
+  return {
+    statusCode: 200,
+    body: JSON.stringify(userFound.Item),
   };
 };

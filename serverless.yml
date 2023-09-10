@@ -31,6 +31,12 @@ functions:
       - httpApi:
           path: /createUser
           method: post
+  getUserById:
+    handler: src/handlers.getUserById
+    events:
+      - httpApi:
+          path: /getUserById/{id}
+          method: get
 
 plugins:
   - serverless-plugin-typescript
