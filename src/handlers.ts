@@ -6,7 +6,6 @@ export const helloWorld = async (event: APIGatewayProxyEvent): Promise<APIGatewa
     body: JSON.stringify(
       {
         message: "Welcome to aws serverless api project!",
-        input: event,
       },
       null,
       2,
