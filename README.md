@@ -55,3 +55,13 @@ serverless deploy
 | Body                                                     | Type        | Description                                 |
 | :------------------------------------------------------- | :---------- | :------------------------------------------ |
 | `{name: "string", "surname": string, "email": "string"}` | `JSON Body` | **Required**. JSON Body request user object |
+
+#### Get user by id
+
+```http
+  GET /getUserById/${id}
+```
+
+| Parameter | Type     | Description                       |
+| :-------- | :------- | :-------------------------------- |
+| `id`      | `string` | **Required**. Id of item to fetch |
