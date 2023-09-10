@@ -45,3 +45,13 @@ serverless deploy
 | Parameter | Description                          |
 | :-------- | :----------------------------------- |
 | `none`    | Is just a simple **hello world api** |
+
+#### Create User
+
+```http
+  POST /createUser
+```
+
+| Body                                                     | Type        | Description                                 |
+| :------------------------------------------------------- | :---------- | :------------------------------------------ |
+| `{name: "string", "surname": string, "email": "string"}` | `JSON Body` | **Required**. JSON Body request user object |
